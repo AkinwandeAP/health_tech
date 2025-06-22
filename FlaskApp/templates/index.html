@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Risk and Emergency Detection Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        p {
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .disclaimer {
+            font-size: 0.9em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="range"] {
+            cursor: pointer;
+        }
+        .slider-value {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        #result.emergency {
+            background: #e74c3c;
+            color: white;
+        }
+        #result.non-emergency {
+            background: #2ecc71;
+            color: white;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+            button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Risk and Emergency Detection Tool</h1>
+    <p>Enter your symptoms to assess cancer risk and check for emergency conditions.</p>
+    <p class="disclaimer">This tool uses simulated data and is for informational purposes only. Consult a doctor for professional diagnosis.</p>
+    
+    <form id="symptomForm">
+        <div class="section">
+            <h3>Demographic Information</h3>
+            <label for="age">Age (18–100):</label>
+            <input type="number" id="age" name="age" min="18" max="100" required>
+            
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+            
+            <label for="family_history">Family History of Cancer (Yes/No):</label>
+            <select id="family_history" name="family_history" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <h3>Symptoms</h3>
+            <label for="fatigue">Fatigue (Yes/No):</label>
+            <select id="fatigue" name="fatigue" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="weight_loss">Unexplained Weight Loss (Yes/No):</label>
+            <select id="weight_loss" name="weight_loss" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="pain">Pain (Yes/No):</label>
+            <select id="pain" name="pain" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="fever">Fever (Yes/No):</label>
+            <select id="fever" name="fever" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="night_sweats">Night Sweats (Yes/No):</label>
+            <select id="night_sweats" name="night_sweats" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="bleeding">Unusual Bleeding (Yes/No):</label>
+            <select id="bleeding" name="bleeding" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="lumps">Lumps or Swelling (Yes/No):</label>
+            <select id="lumps" name="lumps" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="cough">Persistent Cough (Yes/No):</label>
+            <select id="cough" name="cough" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="bowel_bladder_changes">Bowel or Bladder Changes (Yes/No):</label>
+            <select id="bowel_bladder_changes" name="bowel_bladder_changes" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <h3>Severity Indicators</h3>
+            <label for="pain_severity">Pain Severity (0–10):</label>
+            <input type="range" id="pain_severity" name="pain_severity" min="0" max="10" value="0" required>
+            <span class="slider-value" id="pain_severity_value">0</span>
+            
+            <label for="weight_loss_amount">Weight Loss Amount (kg):</label>
+            <input type="number" id="weight_loss_amount" name="weight_loss_amount" min="0" step="0.1" required>
+            
+            <label for="bleeding_severity">Bleeding Severity:</label>
+            <select id="bleeding_severity" name="bleeding_severity" required>
+                <option value="0">None</option>
+                <option value="1">Mild</option>
+                <option value="2">Moderate</option>
+                <option value="3">Severe</option>
+            </select>
+            
+            <label for="vital_sign_abnormalities">Vital Sign Abnormalities (e.g., high heart rate, low oxygen) (Yes/No):</label>
+            <select id="vital_sign_abnormalities" name="vital_sign_abnormalities" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            <p style="font-size: 0.8em; color: #7f8c8d;">Note: If unsure, check pulse or oxygen levels if possible.</p>
+        </div>
+        
+        <button type="submit">Check Symptoms</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <footer>
+        <p>Developed by GIZ Data Science Training Team Health Tech</p>
+        <p><a href="https://github.com/your-repo" target="_blank">View Project on GitHub</a></p>
+    </footer>
+    
+    <script>
+        // Update slider value display
+        const painSlider = document.getElementById('pain_severity');
+        const painValue = document.getElementById('pain_severity_value');
+        painSlider.addEventListener('input', () => {
+            painValue.textContent = painSlider.value;
+        });
+
+        // Form submission with AJAX
+        const form = document.getElementById('symptomForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(data).toString()
+                });
+
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+
+                const resultDiv = document.getElementById('result');
+                resultDiv.style.display = 'block';
+                resultDiv.className = result.emergency_status.includes('EMERGENCY') ? 'emergency' : 'non-emergency';
+                resultDiv.innerHTML = `
+                    <p><strong>Cancer Risk:</strong> ${result.cancer_risk}</p>
+                    <p><strong>Emergency Status:</strong> ${result.emergency_status}</p>
+                `;
+            } catch (error) {
+                alert('Error processing prediction. Please try again.');
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
