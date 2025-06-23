@@ -1,4 +1,4 @@
-# health_tech
+# HEALTH TECH
 This repository contains the final project developed under an initiative organized by GIZ (Deutsche Gesellschaft für Internationale Zusammenarbeit) and Yaba LCDA. The project explores the use of simulated health datasets for analysis, modeling, and basic web application development. Our aim was to simulate, analyze, build a predictive model, and develop a basic application interface to test the model's performance.
 
 ## TOPIC 
@@ -18,7 +18,8 @@ STEP 2: Building a fishbone diagram (Six categories)
 - Inadequate training of health information personnel.
 - Shortage of Health workers
 - Unavailability of some important health workers like Paramedics and First-aiders
-- Process (Methods)
+
+2. Process (Methods)
 - No prompt response to emergency scenes
 - No systemic approach to emergency care/case
 
