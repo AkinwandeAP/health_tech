@@ -67,3 +67,6 @@ These components demonstrate a full pipeline from data simulation and analysis t
 - Visual data exploration and insights using Power BI
 - Predictive modeling with scikit-learn
 - A prototype Flask web app for testing model predictions (not deployed)
+
+## Disclaimer
+This project was developed for educational purposes only. The datasets are simulated and the web application was created as a prototype and not deployed for public use. This is not intended for clinical or diagnostic decision-making.
