@@ -1,9 +1,4 @@
 # health_tech
-<<<<<<< HEAD
-what we doid in thi9s cproject 
-
-Repo for GIZ health technology group project
-=======
 This repository contains the final project developed under an initiative organized by GIZ (Deutsche Gesellschaft für Internationale Zusammenarbeit) and Yaba LCDA. The project explores the use of simulated health datasets for analysis, modeling, and basic web application development. Our aim was to simulate, analyze, build a predictive model, and develop a basic application interface to test the model's performance.
 
 ## The repository is structured into several folders, each serving a specific purpose:
